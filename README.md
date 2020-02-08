@@ -1,5 +1,7 @@
 BLOOD BANK: Transfusions for your colonists
 ===========================================
+WARNING: NOT YET FOR PUBLIC CONSUMPTION
+
 Adds a "Blood Pack" item that can be used to counter the effects of blood loss after injury.
 	
 Blood packs are created using the "Extract some blood" operation on humanlikes, and can be used directly by any pawn (like a serum) or applied with the "Give blood transfusion" operation by a doctor. 
