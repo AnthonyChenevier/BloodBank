@@ -16,6 +16,7 @@
 		<workAmount>800</workAmount>
 		<isViolation>true</isViolation>
 		<targetsBodyPart>false</targetsBodyPart>
+		<researchPrerequisite>BloodTransfusion</researchPrerequisite>
 		<skillRequirements>
 		  <Medicine>4</Medicine>
 		</skillRequirements> 
@@ -31,6 +32,7 @@
 		<anesthetize>false</anesthetize>
 		<workAmount>400</workAmount>
 		<targetsBodyPart>false</targetsBodyPart>
+		<researchPrerequisite>BloodTransfusion</researchPrerequisite>
 		<skillRequirements>
 			<Medicine>4</Medicine>
 		</skillRequirements>
