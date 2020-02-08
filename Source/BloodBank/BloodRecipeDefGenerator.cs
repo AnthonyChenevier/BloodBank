@@ -47,7 +47,7 @@ namespace BloodBank
 
             newDef.defName = original.defName + "_" + pawn.defName;
             newDef.modContentPack = original.modContentPack; //does this matter?
-
+            newDef.researchPrerequisite = original.researchPrerequisite;
             //set up ingredients and products
             ThingDef bloodDef = BloodPackUtilities.GetBloodDefForPawn(pawn);
 
