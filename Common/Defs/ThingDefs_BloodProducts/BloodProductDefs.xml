@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>UseBloodProduct</defName>
+    <driverClass>JobDriver_UseItem</driverClass>
+    <reportString>Administering TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  
+  <!--=============== Medicine ====================-->
+
+	<ThingDef ParentName="ResourceBase" Name="BloodProductBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<stackLimit>25</stackLimit>
+		<uiIconForStackCount>1</uiIconForStackCount>
+		<soundInteract>Standard_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		
+		<statBases>
+			<Mass>0.35</Mass>
+			<Flammability>1.3</Flammability>
+			<MedicalPotency>0.60</MedicalPotency>
+			<MedicalQualityMax>0.70</MedicalQualityMax>
+			<DeteriorationRate>6</DeteriorationRate>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>0.5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useJob>UseBloodProduct</useJob>
+				<useLabel>inject booster</useLabel>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>CompUseEffect_DestroySelf</compClass>
+			</li>
+		</comps>
+		
+		<thingCategories>
+			<li>BloodProducts</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="BloodProductBase">
+		<defName>ImmuneBooster_Human</defName>
+		<label>immune booster shot</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of white blood cells and other immune boosting natural proteins derived from human blood to aid in combating natural diesease. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BloodProducts/ImmuneBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<costList>
+			<Blood_Human>5</Blood_Human>
+			<Neutroamine>2</Neutroamine>
+		</costList>
+		<recipeMaker>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<researchPrerequisite>BloodRefining</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+				<Intellectual>4</Intellectual>
+			</skillRequirements>
+		</recipeMaker>
+		<comps>
+			<li Class="CompProperties_UseEffect">
+				<compClass>0.5</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="MedicineBase">
+		<defName>HealBooster_Human</defName>
+		<label>healing booster shot</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of plasma, plateletes and other natural proteins derived from human blood to aid in healing wounds.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/BloodProducts/HealingBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<costList>
+			<Blood_Human>5</Blood_Human>
+			<Neutroamine>2</Neutroamine>
+		</costList>
+		<recipeMaker>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<researchPrerequisite>BloodRefining</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+				<Intellectual>4</Intellectual>
+			</skillRequirements>
+		</recipeMaker>
+		<comps>
+			<li Class="CompProperties_UseEffect">
+				<compClass>0.5</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

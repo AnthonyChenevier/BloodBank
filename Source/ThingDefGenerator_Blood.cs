@@ -62,7 +62,7 @@ namespace BloodBank {
                                 {
                                         new CompProperties_Usable
                                         {
-                                                useJob = DefDatabase<JobDef>.GetNamed("TransfuseBloodSelf"),
+                                                useJob = DefDatabase<JobDef>.GetNamed("UseBloodProduct"),
                                                 useLabel = "GiveSelfTransfusion".Translate()
                                         },
                                         new CompProperties_UseEffect
