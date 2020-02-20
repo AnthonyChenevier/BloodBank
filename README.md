@@ -16,7 +16,7 @@ No idea if this steps on any toes compatibility-wise, but it isn't doing anythin
 Alien Framework compatiblity untested, human blood consuption thoughts probably fire for humanlike aliens who don't care about human meat - this'll get fixed.
 	
 ### Ideas/Future plans:
--Refined Blood Products: refine part of your blood stockpile into useful compounds - healing boosters, immune boosters, performance boosters and field transfusion kits (with longer shelf-life than normal blood packs for battles far from home)
+- Refined Blood Products: refine part of your blood stockpile into useful compounds - healing boosters, immune boosters, performance boosters and field transfusion kits (with longer shelf-life than normal blood packs for battles far from home)
 - Custom settings page for blood properties and operation effects (incl. failure below)
 - Alien Framework Compatibility (alien blood != human blood for transfusions, extra blood products from exotic blood (maybe))
 - Automatic job for doctors to apply emergency blood transfusions to patients with extreme blood loss if blood packs are available, like tending wounds.
