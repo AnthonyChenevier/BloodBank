@@ -2,8 +2,22 @@
 <Defs>
     <ThingCategoryDef>
       <defName>Blood</defName>
-      <label>blood</label>
+      <label>blood bank</label>
       <parent>Drugs</parent>
+      <iconPath>Things/Mote/BattleSymbols/Blood</iconPath>
+    </ThingCategoryDef>
+	
+    <ThingCategoryDef>
+      <defName>RawBlood</defName>
+      <label>raw blood</label>
+      <parent>Blood</parent>
+      <iconPath>Things/Mote/BattleSymbols/Blood</iconPath>
+    </ThingCategoryDef>
+	
+    <ThingCategoryDef>
+      <defName>BloodProducts</defName>
+      <label>blood products</label>
+      <parent>Blood</parent>
       <iconPath>Things/Mote/BattleSymbols/Blood</iconPath>
     </ThingCategoryDef>
 </Defs>

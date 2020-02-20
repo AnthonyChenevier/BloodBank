@@ -1,0 +1,6 @@
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\Source\obj\Debug\BloodBank.csprojAssemblyReference.cache
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\Source\obj\Debug\BloodBank.csproj.CopyComplete
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\v1.1\Assemblies\BloodBank.dll
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\v1.1\Assemblies\BloodBank.pdb
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\Source\obj\Debug\BloodBank.dll
+C:\steam\steamapps\common\RimWorld\Mods\BloodBank\Source\obj\Debug\BloodBank.pdb
