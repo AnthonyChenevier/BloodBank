@@ -2,11 +2,11 @@
 <Defs>
 	<ThingCategoryDef>
 		<defName>Blood</defName>
-		<label>blood bank</label>
+		<label>blood</label>
 		<parent>Drugs</parent>
-		<iconPath>Things/Mote/BattleSymbols/Blood</iconPath>
+		<iconPath>UI/Icons/Medical/Bleeding</iconPath>
 	</ThingCategoryDef>
-
+	
 	<ThingCategoryDef>
 		<defName>RawBlood</defName>
 		<label>raw blood</label>
@@ -18,6 +18,6 @@
 		<defName>BloodProducts</defName>
 		<label>blood products</label>
 		<parent>Blood</parent>
-		<iconPath>Things/Mote/BattleSymbols/Blood</iconPath>
+		<iconPath>UI/Icons/ThingCategories/Drugs</iconPath>
 	</ThingCategoryDef>
 </Defs>

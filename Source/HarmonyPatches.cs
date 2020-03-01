@@ -14,7 +14,7 @@ namespace BloodBank
         {
             public BloodBankHarmonyInjector(ModContentPack content) : base(content)
             {
-                var harmony = new Harmony("com.github.makeitso.rimworld.mod.bloodbank");
+                var harmony = new Harmony("makeitso.bloodbank");
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
         }
@@ -27,7 +27,7 @@ namespace BloodBank
             {
                 foreach (ThingDef def in ThingDefGenerator_Blood.ImpliedBloodDefs())
                     DefGenerator.AddImpliedDef(def);
-                foreach (RecipeDef op in BloodRecipeDefGenerator.ImpliedOperationDefs())
+                foreach (RecipeDef op in RecipeDefGenerator_BloodSurgery.ImpliedOperationDefs())
                     DefGenerator.AddImpliedDef(op);
                 DirectXmlCrossRefLoader.ResolveAllWantedCrossReferences(FailMode.Silent);
             }
@@ -41,6 +41,26 @@ namespace BloodBank
             {
                 //meat and blood are indistinguishable to the original method. Use my new comp to flag as not meat
                 __result = __result && !def.HasComp(typeof(BloodPackComp));
+            }
+        }
+
+
+
+        //NOTE: I hate this patch, but I can't think of a better place to influence
+        //natural healing factor after looking into Pawn_HeathTracker.HeathTick()
+        [HarmonyPatch(typeof(Pawn))]
+        [HarmonyPatch("HealthScale", MethodType.Getter)]
+        class Pawn_HealthScale_HP
+        {
+            static void Postfix(Pawn __instance, ref float __result)
+            {
+                //check for existing healbooster hediff and add effect if it exists
+                HediffDef healBoostHediffDef = BloodPackUtilities.HealBoostHediffDef;
+                if (healBoostHediffDef != null && __instance.health.hediffSet.HasHediff(healBoostHediffDef))
+                {
+                    __result *= __instance.health.hediffSet.GetFirstHediffOfDef(healBoostHediffDef).TryGetComp<HediffComp_HealFactor>()?.HealFactor ?? 1f;
+
+                }
             }
         }
 

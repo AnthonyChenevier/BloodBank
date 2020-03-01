@@ -8,6 +8,9 @@
   <BloodDesc>The inner body fluid of a {0} in a sealed IV bag. Comes with an IV syringe and dripline attached.</BloodDesc>
 
   <BloodLabel>{0} blood</BloodLabel>
+  <InsectBloodLabel>insect hemolymph</InsectBloodLabel>
+
+  <HealFactor>Healing factor</HealFactor>
 
   <GiveSelfTransfusion>Administer transfusion</GiveSelfTransfusion>
 

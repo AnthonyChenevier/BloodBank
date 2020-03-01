@@ -1,31 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Verse;
 
 namespace BloodBank
 {
-    public static class BloodRecipeDefGenerator
+    public static class RecipeDefGenerator_BloodSurgery
     {
         public static IEnumerable<RecipeDef> ImpliedOperationDefs()
         {
-            foreach (ThingDef sourceDef in DefDatabase<ThingDef>.AllDefs.ToList())
+            foreach (ThingDef sourceDef in from sourceDef in DefDatabase<ThingDef>.AllDefs
+                                           where sourceDef.category == ThingCategory.Pawn
+                                           where sourceDef.race.IsFlesh
+                                           select sourceDef)
             {
-                if (sourceDef.category == ThingCategory.Pawn)
-                {
-                    if (sourceDef.race.useMeatFrom == null)
-                    {
-                        if (sourceDef.race.IsFlesh)
-                        {
-                            RecipeDef takeBaseDef = DefDatabase<RecipeDef>.GetNamed("TakeBlood");
-                            RecipeDef giveBaseDef = DefDatabase<RecipeDef>.GetNamed("GiveBlood");
-
-                            yield return GenerateRacialSurgery(sourceDef, takeBaseDef);
-                            yield return GenerateRacialSurgery(sourceDef, giveBaseDef);
-                        }
-                    }
-                }
+                yield return GenerateRacialSurgery(sourceDef, DefDatabase<RecipeDef>.GetNamed("TakeBlood"));
+                yield return GenerateRacialSurgery(sourceDef, DefDatabase<RecipeDef>.GetNamed("GiveBlood"));
             }
         }
 
@@ -68,7 +57,8 @@ namespace BloodBank
 
                 newDef.fixedIngredientFilter.SetAllow(bloodDef, true);
             }
-
+            
+            //newDef.recipeUsers.Add(pawn);
             pawn.recipes.Add(newDef);
 
             return newDef;

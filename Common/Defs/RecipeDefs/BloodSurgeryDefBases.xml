@@ -8,7 +8,7 @@
 	family of recipies centralized, modifiable with patches and somewhat manageable-->
 	<RecipeDef>
 		<defName>TakeBlood</defName>
-		<label>draw unit of blood</label>
+		<label>draw blood</label>
 		<description>Draw a small amount of blood from the patient and store in a blood pack.</description>
 		<workerClass>BloodBank.Recipe_TakeBlood</workerClass>
 		<jobString>Drawing unit of blood from TargetA.</jobString>
@@ -24,7 +24,7 @@
 	</RecipeDef>
 
 	<RecipeDef>
-	<defName>GiveBlood</defName>
+		<defName>GiveBlood</defName>
 		<label>give blood transfusion</label>
 		<description>Administer blood transfusion to the patient from a blood pack.</description>
 		<workerClass>BloodBank.Recipe_GiveBlood</workerClass>

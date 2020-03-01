@@ -4,6 +4,21 @@ using Verse;
 namespace BloodBank
 {
     public static class BloodPackUtilities {
+        //cached defs
+        private static HediffDef _healBoostHediffDef;
+        private static ThoughtDef _giveBloodGoodThoughtDef;
+        private static ThoughtDef _giveBloodBadThoughtDef;
+        private static ThoughtDef _stealBloodThoughDef;
+        private static ThoughtDef _killedGuestThought;
+        private static ThoughtDef _killedColonistThought;
+
+        public static HediffDef HealBoostHediffDef => _healBoostHediffDef ?? (_healBoostHediffDef = HediffDef.Named("HealBooster_Hediff"));
+        public static ThoughtDef GiveBloodPositiveThoughtDef => _giveBloodGoodThoughtDef ?? (_giveBloodGoodThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodGood"));
+        public static ThoughtDef GiveBloodNegativeThoughtDef => _giveBloodBadThoughtDef ?? (_giveBloodBadThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodBad"));
+        public static ThoughtDef StealBloodThoughDef => _stealBloodThoughDef ?? (_stealBloodThoughDef = DefDatabase<ThoughtDef>.GetNamed("stoleBlood"));
+        public static ThoughtDef KilledGuestThought => _killedGuestThought ?? (_killedGuestThought = DefDatabase<ThoughtDef>.GetNamed("killedGuestForBlood"));
+        public static ThoughtDef KilledColonistThought => _killedColonistThought ?? (_killedColonistThought = DefDatabase<ThoughtDef>.GetNamed("killedColonistForBlood"));
+
         public static void ApplyBloodPack(Pawn pawn, ThingDef bloodPack)
         {
             Hediff bloodLossHediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss);
@@ -11,8 +26,6 @@ namespace BloodBank
             {
                 bloodLossHediff.Severity -= bloodPack.GetCompProperties<CompProperties_BloodPack>().bloodAmount;
                 pawn.health.Notify_HediffChanged(bloodLossHediff);
-
-                //destroy blood pack
             }
         }
 
@@ -36,8 +49,6 @@ namespace BloodBank
             }
             pawn.health.Notify_HediffChanged(hediff);
 
-            //spawn blood pack
-
             return hediff.Severity >= bloodPackCompProps.minSeverityForBadThought;
         }
 
@@ -46,25 +57,22 @@ namespace BloodBank
             if (donor.NonHumanlikeOrWildMan())
                 return;
 
-            ThoughtDef goodThought = DefDatabase<ThoughtDef>.GetNamed("donatedBloodGood");
-            ThoughtDef badThought = DefDatabase<ThoughtDef>.GetNamed("donatedBloodBad");
-
             if (isViolation)
             {
 
-                donor.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(badThought, 1));
+                donor.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(GiveBloodNegativeThoughtDef, 1));
 
                 foreach (Pawn colonistsAndPrisoner in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonistsAndPrisoners)
                 {
-                    colonistsAndPrisoner.needs.mood.thoughts.memories.TryGainMemory(DefDatabase<ThoughtDef>.GetNamed("stoleBlood"));
+                    colonistsAndPrisoner.needs.mood.thoughts.memories.TryGainMemory(StealBloodThoughDef);
                 }
             }
             else if (isBad)
             {
-                donor.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(badThought, 0));
+                donor.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(GiveBloodNegativeThoughtDef, 0));
             }
             else
-                donor.needs.mood.thoughts.memories.TryGainMemory(goodThought);
+                donor.needs.mood.thoughts.memories.TryGainMemory(GiveBloodPositiveThoughtDef);
         }
 
         public static void GiveThoughtsForKilledForBlood(Pawn donor)
@@ -72,12 +80,9 @@ namespace BloodBank
             if (donor.NonHumanlikeOrWildMan())
                 return;
 
-            ThoughtDef killedGuestThought = DefDatabase<ThoughtDef>.GetNamed("killedGuestForBlood");
-            ThoughtDef killedColonistThought = DefDatabase<ThoughtDef>.GetNamed("killedColonistForBlood");
-
             foreach (Pawn colonistsAndPrisoner in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonistsAndPrisoners)
             {
-                colonistsAndPrisoner.needs.mood.thoughts.memories.TryGainMemory(donor.IsColonist ? killedColonistThought : killedGuestThought);
+                colonistsAndPrisoner.needs.mood.thoughts.memories.TryGainMemory(donor.IsColonist ? KilledColonistThought : KilledGuestThought);
             }
         }
 

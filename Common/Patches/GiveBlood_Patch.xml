@@ -51,4 +51,21 @@
 			<li>Blood</li>
 		</value>
 	</Operation>
+	
+	
+	<!--done in C#. Keeping just in case it's needed for aliens-->
+	
+	<!--Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Human"]/recipes</xpath>
+		<value>    
+			<li>GiveBlood_Human</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Human"]/recipes</xpath>
+		<value>    
+			<li>TakeBlood_Human</li>
+		</value>		
+	</Operation-->
 </Patch>

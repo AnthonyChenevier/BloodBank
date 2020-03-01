@@ -19,6 +19,36 @@
 		  </li>
 		</stages>
 	</ThoughtDef>
+	
+	<!-- insect blood -->
+	<ThoughtDef>
+		<defName>ConsumedInsectHemolymph</defName>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>1</durationDays>
+		<stages>
+		  <li>
+			<label>drank insect hemolymph</label>
+			<description>I drank some gray, slimy insect juices. It was, possibly, the most disgusting thing I've ever tasted.</description>
+			<baseMoodEffect>-6</baseMoodEffect>
+		  </li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>ConsumedInsectHemolymphAsIngredient</defName>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>1</durationDays>
+		<stages>
+		  <li>
+			<label>ate cooked insect hemolymph</label>
+			<description>I ate a meal cooked from gray, slimy insect juices. The seasoning partly covered the taste, but the texture was just wrong.</description>
+			<baseMoodEffect>-3</baseMoodEffect>
+		  </li>
+		</stages>
+	</ThoughtDef>
+  
 
 	<!-- drink raw humanlike blood -->
 	<ThoughtDef>
