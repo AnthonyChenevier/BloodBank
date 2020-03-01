@@ -17,7 +17,5 @@ namespace BloodBank
         public float minSeverityForBadThought;
 
         public CompProperties_BloodPack() { this.compClass = typeof(BloodPackComp); }
-        public CompProperties_BloodPack(Type compClass): base(compClass) { this.compClass = compClass; }
-
     }
 }
