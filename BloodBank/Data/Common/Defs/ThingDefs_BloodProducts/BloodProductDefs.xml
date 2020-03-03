@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef Name="BloodProductBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<category>Item</category>
+		<useHitPoints>true</useHitPoints>
+		<healthAffectsPrice>true</healthAffectsPrice>
+		<selectable>true</selectable>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<Mass>0.5</Mass>
+			<Flammability>2</Flammability>
+			<DeteriorationRate>6</DeteriorationRate>
+			<Beauty>-4</Beauty>
+		</statBases>
+		
+		<altitudeLayer>Item</altitudeLayer>
+		<stackLimit>25</stackLimit>
+		
+		<thingCategories>
+			<li>BloodProducts</li>
+		</thingCategories>
+		
+		<alwaysHaulable>true</alwaysHaulable>
+		
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>0.5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useJob>UseItem</useJob>
+				<useLabel>administer booster</useLabel>
+			</li>
+			<li Class="BloodBank.CompProperties_UsableWithSkill">
+				<skillRequirements>
+					<Medicine>4</Medicine>
+				</skillRequirements>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>CompUseEffect_DestroySelf</compClass>
+			</li>
+		</comps>
+		<pathCost>15</pathCost>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<rotatable>false</rotatable>
+
+		<uiIconForStackCount>1</uiIconForStackCount>
+		<soundInteract>Standard_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<socialPropernessMatters>true</socialPropernessMatters>
+	</ThingDef>
+
+	<ThingDef ParentName="BloodProductBase">
+		<defName>ImmuneBooster_Human</defName>
+		<label>immune booster shot</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of white blood cells and other immune boosting natural proteins derived from human blood to aid in combating natural diesease. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/ImmuneBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="BloodBank.CompProperties_UsableByRace">
+				<allowedRaces>
+					<li>Human</li>
+				</allowedRaces>
+			</li>
+			<li Class="BloodBank.CompProperties_UseEffectAddHediff">
+				<hediffDef>ImmuneBooster_Hediff</hediffDef>
+				<severity>1</severity>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BloodProductBase">
+		<defName>HealBooster_Human</defName>
+		<label>healing booster shot</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of plasma, plateletes and other natural proteins derived from human blood to aid in healing wounds. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/HealBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="BloodBank.CompProperties_UsableByRace">
+				<allowedRaces>
+					<li>Human</li>
+				</allowedRaces>
+			</li>
+			<li Class="BloodBank.CompProperties_UseEffectAddHediff">
+				<hediffDef>HealBooster_Hediff</hediffDef>
+				<severity>1</severity>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BloodProductBase">
+		<defName>PerformanceBooster_Human</defName>
+		<label>performance booster shot</label>
+		<description>A performance boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of human hormones and other natural proteins derived from human blood to boost physical performance. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/PerformanceBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="BloodBank.CompProperties_UsableByRace">
+				<allowedRaces>
+					<li>Human</li>
+				</allowedRaces>
+			</li>
+			<li Class="BloodBank.CompProperties_UseEffectAddHediff">
+				<hediffDef>PerformanceBooster_Hediff</hediffDef>
+				<severity>1</severity>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
