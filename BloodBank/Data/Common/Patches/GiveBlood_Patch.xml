@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>	
+	<!-- Normal Meals -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[@Name="CookMealBase"]/fixedIngredientFilter/categories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[@Name="CookMealBase"]/defaultIngredientFilter/categories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[@Name="CookMealBase"]/defaultIngredientFilter/disallowedCategories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+
+	<!-- Pemmican -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[defName="Make_Pemmican"]/fixedIngredientFilter/categories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[defName="Make_Pemmican"]/defaultIngredientFilter/categories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[defName="Make_Pemmican"]/defaultIngredientFilter</xpath>
+		<value>    
+			<disallowedCategories><li>Blood</li></disallowedCategories>
+		</value>
+	</Operation>
+
+	<!-- all -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/RecipeDef[defName="CookMealSimple" or defName="CookMealFine" or defName="CookMealLavish" or defName="CookMealSurvival" or defName="Make_Pemmican"]/ingredients/li[1]/filter/categories</xpath>
+		<value>    
+			<li>Blood</li>
+		</value>
+	</Operation>
+	
+	
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Human"]/recipes</xpath>
+		<value>    
+			<li>GiveBooster</li>
+		</value>
+	</Operation>
+</Patch>
