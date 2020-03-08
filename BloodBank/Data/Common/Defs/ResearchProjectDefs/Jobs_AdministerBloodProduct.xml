@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-  <JobDef>
-    <defName>UseBloodProduct</defName>
-    <driverClass>JobDriver_UseItem</driverClass>
-    <reportString>Administering TargetA.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
-</Defs>

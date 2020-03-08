@@ -3,7 +3,119 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank", "BloodBank\BloodBank.csproj", "{41013673-853E-4BBB-856D-87CA002F601E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank", "Source\BloodBank.csproj", "{41013673-853E-4BBB-856D-87CA002F601E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{4F07AC00-95C1-4434-B87B-9385245369FB}"
+	ProjectSection(SolutionItems) = preProject
+		About\About.xml = About\About.xml
+		About\Manifest.xml = About\Manifest.xml
+		About\Preview.png = About\Preview.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Defs", "Defs", "{17B30568-8DA6-48EE-90C0-1B4F29A95B06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HediffDefs", "HediffDefs", "{2EA3B775-3832-4990-8511-B13419CB5232}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\HediffDefs\BloodProductHediffs.xml = Common\Defs\HediffDefs\BloodProductHediffs.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeDefs", "RecipeDefs", "{EB01DE31-6EE6-4926-B109-FE27D7A4D023}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\RecipeDefs\BloodProductRecipeDefs.xml = Common\Defs\RecipeDefs\BloodProductRecipeDefs.xml
+		Common\Defs\RecipeDefs\BloodSurgeryDefBases.xml = Common\Defs\RecipeDefs\BloodSurgeryDefBases.xml
+		Common\Defs\RecipeDefs\BloodSurgeryDefs.xml = Common\Defs\RecipeDefs\BloodSurgeryDefs.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResearchProjectDefs", "ResearchProjectDefs", "{73B68245-13DF-43B3-A087-D2648F700896}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\ResearchProjectDefs\Research_BloodBank.xml = Common\Defs\ResearchProjectDefs\Research_BloodBank.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDefs", "ThingCategoryDefs", "{2BAACAAD-EF32-4B55-98BD-AB069109C5F1}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\ThingCategoryDefs\BloodCategory.xml = Common\Defs\ThingCategoryDefs\BloodCategory.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDefs_BloodProducts", "ThingDefs_BloodProducts", "{05EEBA0A-BA9E-4B2C-93FC-97FF8A4DF88E}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\ThingDefs_BloodProducts\BloodProductDefBase.xml = Common\Defs\ThingDefs_BloodProducts\BloodProductDefBase.xml
+		Common\Defs\ThingDefs_BloodProducts\BloodProductDefs.xml = Common\Defs\ThingDefs_BloodProducts\BloodProductDefs.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThoughtDefs", "ThoughtDefs", "{B7780070-229A-4AE8-9CF7-0E35DEA8A377}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Defs\ThoughtDefs\Thoughts_BloodConsumption.xml = Common\Defs\ThoughtDefs\Thoughts_BloodConsumption.xml
+		Common\Defs\ThoughtDefs\Thoughts_BloodDeath.xml = Common\Defs\ThoughtDefs\Thoughts_BloodDeath.xml
+		Common\Defs\ThoughtDefs\Thoughts_BloodTransfusion.xml = Common\Defs\ThoughtDefs\Thoughts_BloodTransfusion.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{51C4759C-3498-4D7E-9178-B070EB638D8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "English", "English", "{EB838A55-CECA-4CF4-9458-DC8740AF5561}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Languages\English\LangIcon.png = Common\Languages\English\LangIcon.png
+		Common\Languages\English\LanguageInfo.xml = Common\Languages\English\LanguageInfo.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{991A733F-BE94-4469-9417-0CAC90F56118}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Languages\English\Keyed\Messages.xml = Common\Languages\English\Keyed\Messages.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{2557B693-E8D4-4731-9C70-DC6636C15980}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Patches\GiveBlood_Patch.xml = Common\Patches\GiveBlood_Patch.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textures", "Textures", "{59948754-B9DF-44C3-A4AF-EA2B90DA48E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Things", "Things", "{A5F28812-06F5-4A2C-838D-6C5E22F61CCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{2302850B-5DC5-4328-91B0-D3A43783DCD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource", "Resource", "{6062096C-E250-431C-8CA2-927218E81DDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BloodPack", "BloodPack", "{9B58DE24-B832-430A-AEE4-F2FCA8AFEA9B}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Textures\Things\Item\Resource\BloodPack\BloodPack_a.png = Common\Textures\Things\Item\Resource\BloodPack\BloodPack_a.png
+		Common\Textures\Things\Item\Resource\BloodPack\BloodPack_b.png = Common\Textures\Things\Item\Resource\BloodPack\BloodPack_b.png
+		Common\Textures\Things\Item\Resource\BloodPack\BloodPack_c.png = Common\Textures\Things\Item\Resource\BloodPack\BloodPack_c.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HealBooster", "HealBooster", "{C7D0CD0B-7932-4815-9ACF-C4503BD24148}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Textures\Things\Item\Resource\HealBooster\HealBooster_a.png = Common\Textures\Things\Item\Resource\HealBooster\HealBooster_a.png
+		Common\Textures\Things\Item\Resource\HealBooster\HealBooster_b.png = Common\Textures\Things\Item\Resource\HealBooster\HealBooster_b.png
+		Common\Textures\Things\Item\Resource\HealBooster\HealBooster_c.png = Common\Textures\Things\Item\Resource\HealBooster\HealBooster_c.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImmuneBooster", "ImmuneBooster", "{EC5CF5D1-3F59-438A-903B-411E90E51C46}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_a.png = Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_a.png
+		Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_b.png = Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_b.png
+		Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_c.png = Common\Textures\Things\Item\Resource\ImmuneBooster\ImmuneBooster_c.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InsectBloodPack", "InsectBloodPack", "{A908A2FB-4B08-4062-BCB3-61DA5488FDD9}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_a.png = Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_a.png
+		Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_b.png = Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_b.png
+		Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_c.png = Common\Textures\Things\Item\Resource\InsectBloodPack\InsectBloodPack_c.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PerformanceBooster", "PerformanceBooster", "{964727C3-9A7E-4E74-9F83-6376D5766A24}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_a.png = Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_a.png
+		Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_b.png = Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_b.png
+		Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_c.png = Common\Textures\Things\Item\Resource\PerformanceBooster\PerformanceBooster_c.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75273F6D-01ED-4167-A414-04A7131D8A9D}"
+	ProjectSection(SolutionItems) = preProject
+		LoadFolders.xml = LoadFolders.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +130,30 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F07AC00-95C1-4434-B87B-9385245369FB} = {75273F6D-01ED-4167-A414-04A7131D8A9D}
+		{CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84} = {75273F6D-01ED-4167-A414-04A7131D8A9D}
+		{17B30568-8DA6-48EE-90C0-1B4F29A95B06} = {CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}
+		{2EA3B775-3832-4990-8511-B13419CB5232} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{EB01DE31-6EE6-4926-B109-FE27D7A4D023} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{73B68245-13DF-43B3-A087-D2648F700896} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{2BAACAAD-EF32-4B55-98BD-AB069109C5F1} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{05EEBA0A-BA9E-4B2C-93FC-97FF8A4DF88E} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{B7780070-229A-4AE8-9CF7-0E35DEA8A377} = {17B30568-8DA6-48EE-90C0-1B4F29A95B06}
+		{51C4759C-3498-4D7E-9178-B070EB638D8A} = {CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}
+		{EB838A55-CECA-4CF4-9458-DC8740AF5561} = {51C4759C-3498-4D7E-9178-B070EB638D8A}
+		{991A733F-BE94-4469-9417-0CAC90F56118} = {EB838A55-CECA-4CF4-9458-DC8740AF5561}
+		{2557B693-E8D4-4731-9C70-DC6636C15980} = {CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}
+		{59948754-B9DF-44C3-A4AF-EA2B90DA48E0} = {CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}
+		{A5F28812-06F5-4A2C-838D-6C5E22F61CCA} = {59948754-B9DF-44C3-A4AF-EA2B90DA48E0}
+		{2302850B-5DC5-4328-91B0-D3A43783DCD7} = {A5F28812-06F5-4A2C-838D-6C5E22F61CCA}
+		{6062096C-E250-431C-8CA2-927218E81DDB} = {2302850B-5DC5-4328-91B0-D3A43783DCD7}
+		{9B58DE24-B832-430A-AEE4-F2FCA8AFEA9B} = {6062096C-E250-431C-8CA2-927218E81DDB}
+		{C7D0CD0B-7932-4815-9ACF-C4503BD24148} = {6062096C-E250-431C-8CA2-927218E81DDB}
+		{EC5CF5D1-3F59-438A-903B-411E90E51C46} = {6062096C-E250-431C-8CA2-927218E81DDB}
+		{A908A2FB-4B08-4062-BCB3-61DA5488FDD9} = {6062096C-E250-431C-8CA2-927218E81DDB}
+		{964727C3-9A7E-4E74-9F83-6376D5766A24} = {6062096C-E250-431C-8CA2-927218E81DDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE00127C-05E6-42A2-917B-0012285D9DDE}

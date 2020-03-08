@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="BloodProductDefBase" Abstract="True">
+        <thingClass>ThingWithComps</thingClass>
+        <category>Item</category>
+        <useHitPoints>true</useHitPoints>
+        <healthAffectsPrice>true</healthAffectsPrice>
+        <selectable>true</selectable>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Mass>0.5</Mass>
+            <Flammability>2</Flammability>
+            <DeteriorationRate>6</DeteriorationRate>
+            <Beauty>-4</Beauty>
+        </statBases>
+
+        <altitudeLayer>Item</altitudeLayer>
+        <stackLimit>25</stackLimit>
+
+        <thingCategories>
+            <li>BloodProducts</li>
+        </thingCategories>
+
+        <alwaysHaulable>true</alwaysHaulable>
+
+        <tickerType>Rare</tickerType>
+        <comps>
+          <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>0.5</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useJob>UseItem</useJob>
+                <useLabel>Administer booster</useLabel>
+                <useDuration>400</useDuration>
+            </li>
+            <li Class="BloodBank.CompProperties_RestrictUsableWithSkill">
+                <skillRequirements>
+                    <Medicine>4</Medicine>
+                </skillRequirements>
+            </li>
+          <li Class="CompProperties_UseEffect">
+            <compClass>BloodBank.CompUseEffect_AdministerBloodProduct</compClass>
+          </li>
+            <li Class="CompProperties_UseEffect">
+              <compClass>CompUseEffect_DestroySelf</compClass>
+            </li>
+        </comps>
+        <pathCost>15</pathCost>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <rotatable>false</rotatable>
+
+        <uiIconForStackCount>1</uiIconForStackCount>
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <techLevel>Industrial</techLevel>
+        <socialPropernessMatters>true</socialPropernessMatters>
+    </ThingDef>
+</Defs>
