@@ -18,14 +18,60 @@ namespace BloodBank
 
         private static readonly Dictionary<ThingDef, ThingDef> BloodDefsCache = new Dictionary<ThingDef, ThingDef>();
 
-        public static HediffDef ImmuneBoostHediffDef => _immuneBoostHediffDef ?? (_immuneBoostHediffDef = HediffDef.Named("ImmuneBooster_Hediff"));
-        public static HediffDef HealBoostHediffDef => _healBoostHediffDef ?? (_healBoostHediffDef = HediffDef.Named("HealBooster_Hediff"));
-        public static HediffDef PerformanceBoostHediffDef => _performanceBoostHediffDef ?? (_performanceBoostHediffDef = HediffDef.Named("PerformanceBooster_Hediff"));
-        public static ThoughtDef GiveBloodPositiveThoughtDef => _giveBloodGoodThoughtDef ?? (_giveBloodGoodThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodGood"));
-        public static ThoughtDef GiveBloodNegativeThoughtDef => _giveBloodBadThoughtDef ?? (_giveBloodBadThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodBad"));
-        public static ThoughtDef StealBloodThoughDef => _stealBloodThoughDef ?? (_stealBloodThoughDef = DefDatabase<ThoughtDef>.GetNamed("stoleBlood"));
-        public static ThoughtDef KilledGuestThought => _killedGuestThought ?? (_killedGuestThought = DefDatabase<ThoughtDef>.GetNamed("killedGuestForBlood"));
-        public static ThoughtDef KilledColonistThought => _killedColonistThought ?? (_killedColonistThought = DefDatabase<ThoughtDef>.GetNamed("killedColonistForBlood"));
+        private static ThoughtDef _consumeBloodDirect;
+        private static ThoughtDef _consumeBloodDirectBloodlust;
+        private static ThoughtDef _consumeBloodDirectCannibal;
+
+        private static ThoughtDef _consumeBloodIngredient;
+        private static ThoughtDef _consumeBloodIngredientBloodlust;
+        private static ThoughtDef _consumeBloodIngredientCannibal;
+
+        public static HediffDef ImmuneBoostHediffDef =>
+                _immuneBoostHediffDef ?? (_immuneBoostHediffDef = HediffDef.Named("ImmuneBooster_Hediff"));
+
+        public static HediffDef HealBoostHediffDef =>
+                _healBoostHediffDef ?? (_healBoostHediffDef = HediffDef.Named("HealBooster_Hediff"));
+
+        public static HediffDef PerformanceBoostHediffDef =>
+                _performanceBoostHediffDef ??
+                (_performanceBoostHediffDef = HediffDef.Named("PerformanceBooster_Hediff"));
+
+        public static ThoughtDef GiveBloodPositiveThoughtDef =>
+                _giveBloodGoodThoughtDef ??
+                (_giveBloodGoodThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodGood"));
+
+        public static ThoughtDef GiveBloodNegativeThoughtDef =>
+                _giveBloodBadThoughtDef ??
+                (_giveBloodBadThoughtDef = DefDatabase<ThoughtDef>.GetNamed("donatedBloodBad"));
+
+        public static ThoughtDef StealBloodThoughDef =>
+                _stealBloodThoughDef ?? (_stealBloodThoughDef = DefDatabase<ThoughtDef>.GetNamed("stoleBlood"));
+
+        public static ThoughtDef KilledGuestThought =>
+                _killedGuestThought ?? (_killedGuestThought = DefDatabase<ThoughtDef>.GetNamed("killedGuestForBlood"));
+
+        public static ThoughtDef KilledColonistThought =>
+                _killedColonistThought ??
+                (_killedColonistThought = DefDatabase<ThoughtDef>.GetNamed("killedColonistForBlood"));
+
+        public static ThoughtDef ConsumeHumanlikeBloodDirectBloodlustThought =>
+                _consumeBloodDirectBloodlust ??
+                (_consumeBloodDirectBloodlust = ThoughtDef.Named("DrankHumanlikeBloodBloodlust"));
+
+        public static ThoughtDef ConsumeHumanlikeBloodDirectCannibalThought =>
+                _consumeBloodDirectCannibal ??
+                (_consumeBloodDirectCannibal = ThoughtDef.Named("DrankHumanlikeBloodCannibal"));
+
+        public static ThoughtDef ConsumeHumanlikeBloodDirectThought =>
+                _consumeBloodDirect ?? (_consumeBloodDirect = ThoughtDef.Named("DrankHumanlikeBlood"));
+
+        public static ThoughtDef ConsumeHumanlikeBloodIngredientCannibalThought =>
+                _consumeBloodIngredientCannibal ??
+                (_consumeBloodIngredientCannibal = ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredientCannibal"));
+
+        public static ThoughtDef ConsumeHumanlikeBloodIngredientThought =>
+                _consumeBloodIngredient ??
+                (_consumeBloodIngredient = ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredient"));
 
 
         public static void AdministerTransfusion(Pawn pawn, CompBlood bloodPack)
@@ -135,9 +181,10 @@ namespace BloodBank
 
         public static bool IsHumanlikeBlood(this ThingDef foodDef)
         {
-            return foodDef.ingestible.sourceDef?.race == null ||
-                   !foodDef.ingestible.sourceDef.race.Humanlike ||
-                   !foodDef.HasComp(typeof(CompBlood));
+            bool isHumanlikeBlood = foodDef.ingestible.sourceDef?.race != null && foodDef.ingestible.sourceDef.race.Humanlike && foodDef.HasComp(typeof(CompBlood));
+
+            //Log.Message($"{foodDef.defName}.IsHumanlikeBlood called. Result: {isHumanlikeBlood}.");
+            return isHumanlikeBlood;
         }
 
 

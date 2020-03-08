@@ -51,15 +51,16 @@ namespace BloodBank
     }
 
 
-    [HarmonyPatch(typeof(FoodUtility))]
+    [HarmonyPatch(typeof(FoodUtility), "IsHumanlikeMeat")]
     internal class FoodUtility_Patcher
     {
         [HarmonyPostfix]
-        [HarmonyPatch("IsHumanlikeMeat")]
         private static void IsHumanlikeMeat_Postfix(ThingDef def, ref bool __result)
         {
             //meat and blood are indistinguishable to the original method. Use CompBlood to flag as not meat
-            __result = __result && !def.HasComp(typeof(CompBlood));
+            bool newResult = __result && !def.HasComp(typeof(CompBlood));
+            //Log.Message($"{def.defName}.IsHumanlikeMeat postfix. Original result: {__result}. New result: {newResult}");
+            __result = newResult;
         }
     }
 
@@ -83,14 +84,16 @@ namespace BloodBank
                 return;
 
             //direct consumption
-            if (foodDef.IsHumanlikeBlood() && foodDef.ingestible.sourceDef != ingester.def && ingester.IsXenophobic()) //this line is alien specific
+            if (foodDef.IsHumanlikeBlood() &&
+                foodDef.ingestible.sourceDef != ingester.def && ingester.IsXenophobic()) //this line is alien specific
             {
                 if (ingester.story.traits.HasTrait(TraitDefOf.Bloodlust))
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBloodBloodlust"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectBloodlustThought);
                 else if (ingester.story.traits.HasTrait(TraitDefOf.Cannibal))
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBloodCannibal"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectCannibalThought);
                 else
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBlood"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectThought);
+
                 return;
             }
 
@@ -99,11 +102,13 @@ namespace BloodBank
             if (ingredientComp == null)
                 return;
 
-            __result.AddRange(from ingredient in ingredientComp.ingredients.Where(i => i.ingestible != null)
-                              where ingredient.IsHumanlikeBlood() && ingredient.ingestible.sourceDef != ingester.def && ingester.IsXenophobic() //and this
+            __result.AddRange(from ingredient in ingredientComp.ingredients
+                              where ingredient.ingestible != null
+                              && ingredient.IsHumanlikeBlood()
+                              && ingredient.ingestible.sourceDef != ingester.def && ingester.IsXenophobic() //and this
                               select ingester.story.traits.HasTrait(TraitDefOf.Cannibal)
-                                             ? ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredientCannibal")
-                                             : ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredient"));
+                                             ? BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought
+                                             : BloodBankUtilities.ConsumeHumanlikeBloodIngredientThought);
         }
 
     }
@@ -130,11 +135,11 @@ namespace BloodBank
             if (foodDef.IsHumanlikeBlood()) //much saving, so optimize. wow.🐶
             {
                 if (ingester.story.traits.HasTrait(TraitDefOf.Bloodlust))
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBloodBloodlust"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectBloodlustThought);
                 else if (ingester.story.traits.HasTrait(TraitDefOf.Cannibal))
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBloodCannibal"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought);
                 else
-                    __result.Add(ThoughtDef.Named("DrankHumanlikeBlood"));
+                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectThought);
                 return;
             }
 
@@ -144,10 +149,11 @@ namespace BloodBank
                 return;
 
             __result.AddRange(from ingredient in ingredientComp.ingredients
-                              where ingredient.ingestible != null && ingredient.IsHumanlikeBlood() //The mad bastard did it again! How can we deal with such optimized code?!
+                              where ingredient.ingestible != null &&
+                                    ingredient.IsHumanlikeBlood() //The mad bastard did it again! How can we deal with such optimized code?!
                               select ingester.story.traits.HasTrait(TraitDefOf.Cannibal)
-                                             ? ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredientCannibal")
-                                             : ThoughtDef.Named("ConsumedHumanlikeBloodAsIngredient"));
+                                             ? BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought
+                                             : BloodBankUtilities.ConsumeHumanlikeBloodIngredientThought);
         }
     }
 }
