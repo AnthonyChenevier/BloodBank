@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef ParentName="DeathMemory">
+		<defName>killedGuestForBlood</defName>
+		<stackLimit>5</stackLimit>
+		<durationDays>6</durationDays>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+		</nullifyingTraits>
+		<stages>		
+			<li>
+			<label>someone drained of blood</label>
+			<description>We killed a guest or prisoner by draining them of blood. It's horrific! </description>
+			<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef> 
+
+	<ThoughtDef ParentName="DeathMemory">
+		<defName>killedColonistForBlood</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+			<li>Cannibal</li>
+		</nullifyingTraits>
+		<stages>
+			<li>
+				<label>colonist drained of blood</label>
+				<description>We killed a colonist by draining them of blood. It's horrific! </description>
+				<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>
