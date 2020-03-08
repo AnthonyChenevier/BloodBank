@@ -19,11 +19,11 @@
   <loadAfter>
     <li>erdelf.humanoidalienraces</li>
   </loadAfter>
-	<description>
-Adds a few blood related items, recipes and research to allow your colonists to give and take blood to combat the effects of blood loss.
+  <description>
+    Adds a few blood related items, recipes and research to allow your colonists to give and take blood to combat the effects of blood loss.
 
-Also provides a number of refined blood products to boost pawn immunity, healing and performance.
+    Also provides a number of refined blood products to boost pawn immunity, healing and performance.
 
-See the workshop page for more details.
-	</description>
+    See the workshop page for more details. Version v0.5(beta)
+  </description>
 </ModMetaData>
