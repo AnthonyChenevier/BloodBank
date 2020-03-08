@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BloodProductDefBase">
+		<defName>ImmuneBooster_Human</defName>
+		<label>human immune booster</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of white blood cells and other immune boosting natural proteins derived from human blood to aid in combating natural diesease. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/ImmuneBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="BloodBank.CompProperties_RestrictUsableByRace">
+				<allowedRaces>
+					<li>Human</li>
+				</allowedRaces>
+			</li>
+			<li Class="BloodBank.CompProperties_BloodProduct">
+				<hediffDef>ImmuneBooster_Hediff</hediffDef>
+				<severity>1</severity>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BloodProductDefBase">
+		<defName>HealBooster_Human</defName>
+		<label>human healing booster</label>
+		<description>An immune boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of plasma, plateletes and other natural proteins derived from human blood to aid in healing wounds. Only works on humans.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/HealBooster</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<WorkToMake>700</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="BloodBank.CompProperties_RestrictUsableByRace">
+				<allowedRaces>
+					<li>Human</li>
+				</allowedRaces>
+			</li>
+			<li Class="BloodBank.CompProperties_BloodProduct">
+				<hediffDef>HealBooster_Hediff</hediffDef>
+				<severity>1</severity>
+			</li>
+		</comps>
+	</ThingDef>
+
+  <ThingDef ParentName="BloodProductDefBase">
+    <defName>PerformanceBooster_Human</defName>
+    <label>human performance booster</label>
+    <description>A performance boosting compound in a sealed IV bag with attached hypodermic needle. Contains high concentrations of human hormones and other natural proteins derived from human blood to boost physical performance. Only works on humans.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PerformanceBooster</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>700</WorkToMake>
+    </statBases>
+    <comps>
+      <li Class="BloodBank.CompProperties_RestrictUsableByRace">
+        <allowedRaces>
+          <li>Human</li>
+        </allowedRaces>
+      </li>
+      <li Class="BloodBank.CompProperties_BloodProduct">
+        <hediffDef>PerformanceBooster_Hediff</hediffDef>
+        <severity>1</severity>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

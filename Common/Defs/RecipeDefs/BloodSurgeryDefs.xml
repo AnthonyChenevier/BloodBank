@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RecipeDef ParentName="SurgeryGiveBoosterBase">
+    <defName>AdministerImmuneBooster_Human</defName>
+    <label>administer human immune booster</label>
+    <description>Administer human immune booster to the patient.</description>
+    <jobString>Administering human immune booster to TargetA.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ImmuneBooster_Human</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ImmuneBooster_Human</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryGiveBoosterBase">
+    <defName>AdministerHealBooster_Human</defName>
+    <label>administer human healing booster</label>
+    <description>Administer human healing booster.</description>
+    <jobString>Administering human healing booster to TargetA.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HealBooster_Human</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HealBooster_Human</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryGiveBoosterBase">
+    <defName>AdministerPerformanceBooster_Human</defName>
+    <label>administer human performance booster</label>
+    <description>Administer a human performance booster.</description>
+    <jobString>Administering human performance booster to TargetA.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PerformanceBooster_Human</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>PerformanceBooster_Human</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+</Defs>

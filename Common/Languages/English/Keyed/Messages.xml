@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <BloodHumanlikeDesc>The inner body fluid of a {0} in a sealed IV bag. Comes with an IV syringe and dripline attached.</BloodHumanlikeDesc>
+
+  <BloodInsectDesc>The inner body fluid of a {0} in a sealed IV bag. It's gross and jellylike. Comes with an IV syringe and dripline attached.</BloodInsectDesc>
+
+  <BloodDesc>The inner body fluid of a {0} in a sealed IV bag. Comes with an IV syringe and dripline attached.</BloodDesc>
+
+  <BloodLabel>{0} blood</BloodLabel>
+  <InsectBloodLabel>insect hemolymph</InsectBloodLabel>
+
+  <HealFactor>Healing factor</HealFactor>
+
+  <GiveSelfTransfusion>Administer transfusion ({0})</GiveSelfTransfusion>
+
+  <RaceCantUse>Can't be used by this race</RaceCantUse>
+
+  <BloodFull>{0} does not need blood</BloodFull>
+
+  <HasEffect>{0} is already effected by {1}</HasEffect>
+
+</LanguageData>
