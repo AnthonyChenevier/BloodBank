@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RecipeDef Name="BloodProductRecipeBase" Abstract="True">
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Blood_Human</li>
+				<li>Neutroamine</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+		<workSkill>Intellectual</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<recipeUsers>
+			<li>DrugLab</li>
+		</recipeUsers>
+		<researchPrerequisite>BloodRefining</researchPrerequisite>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+			<Intellectual>4</Intellectual>
+		</skillRequirements>
+	</RecipeDef>
+
+	<RecipeDef ParentName="BloodProductRecipeBase">
+		<defName>MakeImmuneBooster_human</defName>
+		<label>make human immune booster</label>
+		<description>Make a human immune booster.</description>
+		<jobString>Making immune booster.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Blood_Human</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<products>
+			<ImmuneBooster_Human>1</ImmuneBooster_Human>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="BloodProductRecipeBase">
+		<defName>MakeHealBooster_Human</defName>
+		<label>make human healing booster</label>
+		<description>Make a human healing booster.</description>
+		<jobString>Making healing booster.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Blood_Human</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<products>
+			<HealBooster_Human>1</HealBooster_Human>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="BloodProductRecipeBase">
+		<defName>MakePerformanceBooster_Human</defName>
+		<label>make human performance booster</label>
+		<description>Make a human performance booster.</description>
+		<jobString>Making performance booster.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Blood_Human</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<products>
+			<PerformanceBooster_Human>1</PerformanceBooster_Human>
+		</products>
+	</RecipeDef>
+</Defs>
