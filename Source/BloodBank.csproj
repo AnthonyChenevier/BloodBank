@@ -306,7 +306,7 @@
     <Compile Include="ModSettings\GeneralProductModSettings.cs" />
     <Compile Include="ModSettings\SpecificProductModSettings.cs" />
     <Compile Include="Utilities\UIExtensions.cs" />
-    <Compile Include="Utilities\BloodDefCache.cs" />
+    <Compile Include="BloodDefCache.cs" />
     <Compile Include="ModSettings\BloodBankModSettings.cs" />
     <Compile Include="Utilities\BloodBankUtilities.cs" />
     <Compile Include="Utilities\BloodThoughtDefOf.cs" />

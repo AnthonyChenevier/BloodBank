@@ -4,11 +4,8 @@
 // 
 // Created by: Anthony Chenevier on // 
 // Last edited by: Anthony Chenevier on 2020/03/14 2:16 PM
-
-
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
 
 namespace BloodBank.ModSettings

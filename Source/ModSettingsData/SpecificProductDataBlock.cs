@@ -1,17 +1,17 @@
-﻿// SpecificBPProperties.cs
+﻿// SpecificProductDataBlock.cs
 // 
 // Part of BloodBank - BloodBank
 // 
 // Created by: Anthony Chenevier on // 
-// Last edited by: Anthony Chenevier on 2020/03/16 12:30 PM
+// Last edited by: Anthony Chenevier on 2020/03/20 9:50 PM
 
 
 using System.Linq;
 using Verse;
 
-namespace BloodBank.ModSettings 
+namespace BloodBank.ModSettingsData
 {
-    public class SpecificProductDataBlock: ModSettingsDataBlock<SpecificProductDataBlock>
+    public class SpecificProductDataBlock : ModSettingsDataBlock<SpecificProductDataBlock>
     {
         public string ThingDefName;
 
@@ -48,10 +48,9 @@ namespace BloodBank.ModSettings
 
         public override void ExposeData()
         {
-            base.ExposeData();
             Scribe_Values.Look(ref ThingDefName, "ThingDefName");
             Scribe_Values.Look(ref HediffDefName, "HediffDefName");
-            Scribe_Values.Look(ref EffectTime, "EffectTime", new IntRange(60000,60000));
+            Scribe_Values.Look(ref EffectTime, "EffectTime", new IntRange(60000, 60000));
         }
 
         public override bool Equals(SpecificProductDataBlock other)
@@ -60,23 +59,10 @@ namespace BloodBank.ModSettings
                    HediffDefName.Equals(other.HediffDefName) &&
                    EffectTime.Equals(other.EffectTime);
         }
-    }
 
-    public class SpecificProductDataDisplay : ModSettingsDataDisplay<SpecificProductDataBlock>
-    {
-        public SpecificProductDataDisplay(SpecificProductDataBlock dataBlock) : base(dataBlock) { }
-
-        public override bool DoSettingsUI(Listing_Standard mainListing)
+        public override SpecificProductDataBlock DisplayControls(Listing_Standard listing)
         {
-            if (SettingHeader(mainListing, "SpecificBloodProductProperties".Translate(), DataBlock.ThingDefName))
-            {
-                DataBlock.SetDefault();
-                return true;
-            }
-
-            Listing_Standard sectionListing = mainListing.BeginSection(SectionHeight);
-
-            string hediff = sectionListing.TextFieldLabeled("HediffDefName_BBS".Translate(), DataBlock.HediffDefName, "HediffDefName_BBS_Tag".Translate());
+            string hediff = listing.TextFieldLabeled("HediffDefName_BBS".Translate(), HediffDefName, "HediffDefName_BBS_Tag".Translate());
 
             //this is an InRange, but treat it like a simple int.
             //Additionally, hediffDuration is stored as ticks, but
@@ -84,20 +70,15 @@ namespace BloodBank.ModSettings
             //on the slider.
             IntRange hediffDuration = new IntRange();
             hediffDuration.max = hediffDuration.min =
-                                     (int)(sectionListing.LabeledSliderWithOverride(DataBlock.EffectTime.max / 60000f,
+                                     (int)(listing.LabeledSliderWithOverride(EffectTime.max / 60000f,
                                                                                     "EffectTime_BBS".Translate(), 0.25f, 60f,
                                                                                     "EffectTime_BBS_Tag".Translate()) * 60000f);
-
-            mainListing.EndSection(sectionListing);
-
-
-            bool contentsChanged = CopyDataIfChanged(new SpecificProductDataBlock
+            return new SpecificProductDataBlock
             {
-                ThingDefName = DataBlock.ThingDefName,
+                ThingDefName = ThingDefName,
                 HediffDefName = hediff,
                 EffectTime = hediffDuration,
-            });
-            return CheckAndUpdateSectionHeight(sectionListing.CurHeight, contentsChanged);
+            };
         }
     }
 }

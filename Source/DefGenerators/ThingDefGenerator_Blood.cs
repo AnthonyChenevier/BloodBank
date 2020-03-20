@@ -69,6 +69,7 @@ namespace BloodBank {
 
                 bloodDef.socialPropernessMatters = true;
                 bloodDef.modContentPack = BloodBankMod.Instance.Content;
+                bloodDef.tradeability = sourceDef.race.Humanlike ? Tradeability.All : Tradeability.Buyable;
 
                 //worth 4x as much as the meat of the same animal if humanlike, half as much for critters
                 bloodDef.BaseMarketValue = sourceDef.race.Humanlike
