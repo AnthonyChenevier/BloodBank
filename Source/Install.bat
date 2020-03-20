@@ -88,14 +88,10 @@ ECHO ==========================
 IF %1==Debug (
 	IF EXIST %PDB2MDB_PATH% (
 		IF EXIST "%MOD_DLL_PATH:~0,-4%.pdb" (
-			ECHO Creating mdb at %MOD_DLL_PATH%
-REM			this is the old way, using a mono-based converter
-REM			"%MONO_EXE%" "%PDB2MDB_PATH%" "%MOD_DLL_PATH%" 1>NUL
+			ECHO Creating mdb for %MOD_DLL_PATH%
 			"%PDB2MDB_PATH%" "%MOD_DLL_PATH%" 1>NUL
-		)
-	) ELSE (
-		ECHO %PDB2MDB_PATH% does not exist. Skipping mdb creation
-	)
+		) ELSE ECHO No pdb found
+	) ELSE ECHO %PDB2MDB_PATH% does not exist. Skipping mdb creation
 )
 
 IF %1==Release (

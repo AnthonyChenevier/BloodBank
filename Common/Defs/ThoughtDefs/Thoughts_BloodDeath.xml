@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ThoughtDef ParentName="DeathMemory">
-		<defName>killedGuestForBlood</defName>
+		<defName>KilledGuestForBlood</defName>
 		<stackLimit>5</stackLimit>
 		<durationDays>6</durationDays>
 		<nullifyingTraits>
@@ -19,7 +19,7 @@
 	</ThoughtDef> 
 
 	<ThoughtDef ParentName="DeathMemory">
-		<defName>killedColonistForBlood</defName>
+		<defName>KilledColonistForBlood</defName>
 		<durationDays>6</durationDays>
 		<stackLimit>5</stackLimit>
 		<nullifyingTraits>

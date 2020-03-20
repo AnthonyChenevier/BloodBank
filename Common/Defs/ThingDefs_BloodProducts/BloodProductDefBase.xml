@@ -25,7 +25,7 @@
 
         <tickerType>Rare</tickerType>
         <comps>
-          <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Forbiddable" />
             <li Class="CompProperties_Rottable">
                 <daysToRotStart>0.5</daysToRotStart>
                 <rotDestroys>true</rotDestroys>

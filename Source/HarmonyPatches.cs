@@ -36,17 +36,14 @@ namespace BloodBank
     {
         //NOTE: I hate this patch, but I can't think of a better place to influence
         //natural healing factor after looking into Pawn_HeathTracker.HeathTick()
+        //ADDENDUM: On second thought, there could be worse places for this. just don't
+        //go crazy on the overhead because it's called by everything with a pulse
         [HarmonyPostfix]
         [HarmonyPatch("HealthScale", MethodType.Getter)]
         private static void HealthScale_Postfix(Pawn __instance, ref float __result)
         {
             //check for existing healbooster hediff and add effect if it exists
-            HediffDef healBoostHediffDef = BloodBankUtilities.HealBoostHediffDef;
-            if (__instance.health.hediffSet.HasHediff(healBoostHediffDef))
-            {
-                __result *= __instance.health.hediffSet.GetFirstHediffOfDef(healBoostHediffDef).TryGetComp<HediffComp_HealFactor>()?.Props.healFactor ?? 1f;
-
-            }
+            __result *= BloodBankUtilities.GetHealingFactor(__instance);
         }
     }
 
@@ -59,7 +56,7 @@ namespace BloodBank
         {
             //meat and blood are indistinguishable to the original method. Use CompBlood to flag as not meat
             bool newResult = __result && !def.HasComp(typeof(CompBlood));
-            //Log.Message($"{def.defName}.IsHumanlikeMeat postfix. Original result: {__result}. New result: {newResult}");
+            //Debug.Log($"{def.defName}.IsHumanlikeMeat postfix. Original result: {__result}. New result: {newResult}");
             __result = newResult;
         }
     }
@@ -67,10 +64,16 @@ namespace BloodBank
     //these next 2 are conditional based on the existence of the Alien Race Framework
     //this one supports Xenophobic aliens. Hooray...?
     [HarmonyPatch]
+    [HarmonyAfter("rimworld.erdelf.alien_race.main")]
     internal class FoodUtility_ARF_Patcher
     {
         [HarmonyPrepare]
-        private static bool Prepare() { return BloodBankMod.AlienFrameworkExists; }
+        private static bool Prepare()
+        {
+            bool frameworkExists = BloodBankMod.Instance.AlienFrameworkExists;
+            if (frameworkExists) Debug.Log("Running ARF specific FoodUtility.ThoughtsFromIngesting patch");
+            return frameworkExists;
+        }
 
         private static MethodBase TargetMethod()
         {
@@ -83,32 +86,32 @@ namespace BloodBank
             if (!ingester.RaceProps.Humanlike)
                 return;
 
-            //direct consumption
-            if (foodDef.IsHumanlikeBlood() &&
-                foodDef.ingestible.sourceDef != ingester.def && ingester.IsXenophobic()) //this line is alien specific
+            //Debug.Log("Processing blood thoughts for humanlikes");
+            ////direct consumption
+            if (foodDef.IsHumanlikeBlood()) 
             {
+                //bloodlust beats xenophobia
                 if (ingester.story.traits.HasTrait(TraitDefOf.Bloodlust))
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectBloodlustThought);
-                else if (ingester.story.traits.HasTrait(TraitDefOf.Cannibal))
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectCannibalThought);
-                else
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectThought);
-
+                    __result.Add(BloodThoughtDefOf.ConsumedHumanlikeBloodDirectBloodlust);
+                else if (ingester.def == foodDef.ingestible.sourceDef || !ingester.IsXenophobic()) //alien-specific food check
+                    __result.Add(ingester.story.traits.HasTrait(TraitDefOf.Cannibal)
+                                     ? BloodThoughtDefOf.ConsumedHumanlikeBloodDirectCannibal
+                                     : BloodThoughtDefOf.ConsumedHumanlikeBloodDirect);
                 return;
             }
 
-            //consumption as ingredient
+            //else it's consumption as ingredient
             CompIngredients ingredientComp = foodSource.TryGetComp<CompIngredients>();
             if (ingredientComp == null)
                 return;
 
             __result.AddRange(from ingredient in ingredientComp.ingredients
-                              where ingredient.ingestible != null
-                              && ingredient.IsHumanlikeBlood()
-                              && ingredient.ingestible.sourceDef != ingester.def && ingester.IsXenophobic() //and this
+                              where ingredient.ingestible != null && ingredient.IsHumanlikeBlood() &&
+                                    (ingester.def == ingredient.ingestible.sourceDef || !ingester.IsXenophobic()) //and this
                               select ingester.story.traits.HasTrait(TraitDefOf.Cannibal)
-                                             ? BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought
-                                             : BloodBankUtilities.ConsumeHumanlikeBloodIngredientThought);
+                                         ? BloodThoughtDefOf.ConsumedHumanlikeBloodAsIngredientCannibal
+                                         : BloodThoughtDefOf.ConsumedHumanlikeBloodAsIngredient);
+
         }
 
     }
@@ -118,7 +121,12 @@ namespace BloodBank
     internal class FoodUtility_Vanilla_Patcher
     {
         [HarmonyPrepare]
-        private static bool Prepare() { return !BloodBankMod.AlienFrameworkExists; }
+        private static bool Prepare()
+        {
+            bool frameworkExists = BloodBankMod.Instance.AlienFrameworkExists;
+            if (!frameworkExists) Debug.Log("Running vanilla FoodUtility.ThoughtsFromIngesting patch");
+            return !frameworkExists;
+        }
 
         private static MethodBase TargetMethod()
         {
@@ -131,15 +139,16 @@ namespace BloodBank
             if (!ingester.RaceProps.Humanlike)
                 return;
 
+            //Debug.Log("Processing blood thoughts for humanlikes");
             //direct consumption
             if (foodDef.IsHumanlikeBlood()) //much saving, so optimize. wow.🐶
             {
                 if (ingester.story.traits.HasTrait(TraitDefOf.Bloodlust))
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectBloodlustThought);
+                    __result.Add(BloodThoughtDefOf.ConsumedHumanlikeBloodDirectBloodlust);
                 else if (ingester.story.traits.HasTrait(TraitDefOf.Cannibal))
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought);
+                    __result.Add(BloodThoughtDefOf.ConsumedHumanlikeBloodAsIngredientCannibal);
                 else
-                    __result.Add(BloodBankUtilities.ConsumeHumanlikeBloodDirectThought);
+                    __result.Add(BloodThoughtDefOf.ConsumedHumanlikeBloodDirect);
                 return;
             }
 
@@ -152,8 +161,8 @@ namespace BloodBank
                               where ingredient.ingestible != null &&
                                     ingredient.IsHumanlikeBlood() //The mad bastard did it again! How can we deal with such optimized code?!
                               select ingester.story.traits.HasTrait(TraitDefOf.Cannibal)
-                                             ? BloodBankUtilities.ConsumeHumanlikeBloodIngredientCannibalThought
-                                             : BloodBankUtilities.ConsumeHumanlikeBloodIngredientThought);
+                                             ? BloodThoughtDefOf.ConsumedHumanlikeBloodAsIngredientCannibal
+                                             : BloodThoughtDefOf.ConsumedHumanlikeBloodAsIngredient);
         }
     }
 }

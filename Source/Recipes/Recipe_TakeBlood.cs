@@ -21,7 +21,7 @@ namespace BloodBank
         {
             if (!recipe.products[0].thingDef.HasComp(typeof(CompBlood)))
             {
-                Log.Error("Blood Bank - Give blood operation failed (products[0] has no CompBlood)");
+                Debug.Error("Blood Bank - Give blood operation failed (products[0] has no CompBlood)");
                 return;
             }
 

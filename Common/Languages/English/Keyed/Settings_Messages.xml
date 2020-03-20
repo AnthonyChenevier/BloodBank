@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+    <BloodBankSettingsChanged>Blood Bank :: Settings Updated</BloodBankSettingsChanged>
+
+    <!-- Headings and general stuff -->
+    <BloodDefProperties>Blood Item Properties</BloodDefProperties>
+    <BloodProductProperties>Blood Product Properties</BloodProductProperties>
+    <GeneralBloodProductProperties>General Properties</GeneralBloodProductProperties>
+    <SpecificBloodProductProperties>Specific Properties</SpecificBloodProductProperties>
+
+    <ResetToDefault>Reset to Default</ResetToDefault>
+    <ResetToDefault_Tip>Reset {0} to default values.</ResetToDefault_Tip>
+
+    <!-- General Blood Def/Blood Product Properties -->
+
+    <RequireMedicalSkill_BBS>Require medical skill</RequireMedicalSkill_BBS>
+    <RequireMedicalSkill_BBS_Tag>Does this item require medical skill to use?</RequireMedicalSkill_BBS_Tag>
+
+    <Amount_BBS>Blood amount contained</Amount_BBS>
+    <Amount_BBS_Tag>How much blood each blood pack contains as a percentage of a pawn's total blood (i.e 0.1 will restore 10% blood loss).</Amount_BBS_Tag>
+
+    <HarvestEfficiencyFactor_BBS>Blood harvesting/donor efficiency</HarvestEfficiencyFactor_BBS>
+    <HarvestEfficiencyFactor_BBS_Tag>How efficient harvesting blood is. This affects how much blood is taken to produce one blood pack (i.e. 0.5, or half efficiency, will take double the amount set in 'Blood amount contained' from the donor).</HarvestEfficiencyFactor_BBS_Tag>
+
+    <BloodLossReqdForBadThought_BBS>Minimum blood loss for negative thought</BloodLossReqdForBadThought_BBS>
+    <BloodLossReqdForBadThought_BBS_Tag>The amount of blood loss required to trigger a negative thought on blood donation.</BloodLossReqdForBadThought_BBS_Tag>
+
+    <StackLimit_BBS>Stack limit</StackLimit_BBS>
+    <StackLimit_BBS_Tag>The allowed stack size for this item.</StackLimit_BBS_Tag>
+
+    <DaysToRot_BBS>Days until rot</DaysToRot_BBS>
+    <DaysToRot_BBS_Tag>How many days this item takes to rot away if not kept frozen</DaysToRot_BBS_Tag>
+
+    <SkillRequirement_BBS>Medical skill required</SkillRequirement_BBS>
+    <SkillRequirement_BBS_Tag>Medical skill level required for applying this item. Applies to self-use and operations.</SkillRequirement_BBS_Tag>
+
+    <HitPoints_BBS>Hit points</HitPoints_BBS>
+    <HitPoints_BBS_Tag>The amount of hit points this item has.</HitPoints_BBS_Tag>
+
+    <DeteriorationRate_BBS>Deterioration rate</DeteriorationRate_BBS>
+    <DeteriorationRate_BBS_Tag>How many hit points this item loses each day if left outside.</DeteriorationRate_BBS_Tag>
+
+    <Nutrition_BBS>Nutrition</Nutrition_BBS>
+    <Nutrition_BBS_Tag>How much nutrition each item provides</Nutrition_BBS_Tag>
+
+    <FoodPoisonChanceFixedHuman_BBS>Food poison chance</FoodPoisonChanceFixedHuman_BBS>
+    <FoodPoisonChanceFixedHuman_BBS_Tag>Food poisoning chance for humanlikes.</FoodPoisonChanceFixedHuman_BBS_Tag>
+
+    <HumanBloodCostMeatMultiplier_BBS>Humanoid blood cost multiplier</HumanBloodCostMeatMultiplier_BBS>
+    <HumanBloodCostMeatMultiplier_BBS_Tag>Blood cost is derived from meat cost times this if the meat is humanlike.</HumanBloodCostMeatMultiplier_BBS_Tag>
+
+    <AnimalBloodCostMeatMultiplier_BBS>Animal blood cost multiplier</AnimalBloodCostMeatMultiplier_BBS>
+    <AnimalBloodCostMeatMultiplier_BBS_Tag>Blood cost is derived from meat cost times this if the meat is animal.</AnimalBloodCostMeatMultiplier_BBS_Tag>
+
+    <!-- Specific Blood Product Properties -->
+
+    <HediffDefName_BBS>Hediff def name</HediffDefName_BBS>
+    <HediffDefName_BBS_Tag>The hediff to apply on the pawn when this object is used.</HediffDefName_BBS_Tag>
+
+    <EffectTime_BBS>Effect duration</EffectTime_BBS>
+    <EffectTime_BBS_Tag>How long the effect of the product lasts, in days.</EffectTime_BBS_Tag>
+
+</LanguageData>

@@ -13,6 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{4F07AC00
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CBDB2C13-3EAC-42DF-BC08-4FAAA5B04B84}"
+	ProjectSection(SolutionItems) = preProject
+		LoadFolders.xml = LoadFolders.xml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Defs", "Defs", "{17B30568-8DA6-48EE-90C0-1B4F29A95B06}"
 EndProject
@@ -62,10 +65,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{991A733F-BE94-4469-9417-0CAC90F56118}"
 	ProjectSection(SolutionItems) = preProject
 		Common\Languages\English\Keyed\Messages.xml = Common\Languages\English\Keyed\Messages.xml
+		Common\Languages\English\Keyed\Settings_Messages.xml = Common\Languages\English\Keyed\Settings_Messages.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{2557B693-E8D4-4731-9C70-DC6636C15980}"
 	ProjectSection(SolutionItems) = preProject
+		Common\Patches\BloodInFood_Patch.xml = Common\Patches\BloodInFood_Patch.xml
 		Common\Patches\GiveBlood_Patch.xml = Common\Patches\GiveBlood_Patch.xml
 	EndProjectSection
 EndProject

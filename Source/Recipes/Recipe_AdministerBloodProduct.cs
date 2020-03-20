@@ -27,7 +27,7 @@ namespace BloodBank
             if (compBloodProduct != null)
                 BloodBankUtilities.AdministerBooster(pawn, compBloodProduct);
             else
-                Log.Error($"Blood Bank - Give booster operation failed (ingredients[0] ({ingredients[0].def.defName}) has no CompBloodProduct)");
+                Debug.Error($"Blood Bank - Give booster operation failed (ingredients[0] ({ingredients[0].def.defName}) has no CompBloodProduct)");
         }
 
         public override void ConsumeIngredient(Thing ingredient, RecipeDef recipe, Map map)

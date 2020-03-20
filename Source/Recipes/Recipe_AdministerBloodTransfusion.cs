@@ -27,7 +27,7 @@ namespace BloodBank
             if (compBlood != null)
                 BloodBankUtilities.AdministerTransfusion(pawn, compBlood);
             else
-                Log.Error($"Blood Bank - Give blood operation failed (ingredients[0] ({ingredients[0].def.defName}) has no CompBlood)");
+                Debug.Error($"Blood Bank - Give blood operation failed (ingredients[0] ({ingredients[0].def.defName}) has no CompBlood)");
         }
 
         public override void ConsumeIngredient(Thing ingredient, RecipeDef recipe, Map map)

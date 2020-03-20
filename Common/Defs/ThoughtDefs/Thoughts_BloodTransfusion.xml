@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ThoughtDef>
-		<defName>donatedBloodGood</defName>
+		<defName>GiveBloodPositive</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/GenericGood</icon>
 		<stackLimit>5</stackLimit>
@@ -16,7 +16,7 @@
 	</ThoughtDef>
 
 	<ThoughtDef>
-		<defName>donatedBloodBad</defName>
+		<defName>GiveBloodNegative</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/GenericBad</icon>
 		<stackLimit>5</stackLimit>
@@ -36,7 +36,7 @@
 	</ThoughtDef>
 
 	<ThoughtDef>
-		<defName>knowStoleBlood</defName>
+		<defName>KnowStoleBlood</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/GenericBad</icon>
 		<stackLimit>1</stackLimit>

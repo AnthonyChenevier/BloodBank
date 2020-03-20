@@ -27,6 +27,6 @@ namespace BloodBank {
     {
         public HediffCompProperties_HealFactor Props => (HediffCompProperties_HealFactor)this.props;
         
-        public override string CompTipStringExtra => $"{"HealFactor".Translate()}:  x{Props.healFactor:F1}";
+        public override string CompTipStringExtra => $"{"HealFactor".Translate($"{Props.healFactor:F1}")}";
     }
 }

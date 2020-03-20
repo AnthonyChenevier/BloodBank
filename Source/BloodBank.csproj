@@ -24,11 +24,12 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Data\v1.1\Assemblies\</OutputPath>
+    <Optimize>false</Optimize>
+    <OutputPath>..\v1.1\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -298,24 +299,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BloodBankUtilities.cs" />
-    <Compile Include="CompBlood.cs" />
-    <Compile Include="CompBloodProduct.cs" />
+    <Compile Include="Debug.cs" />
+    <Compile Include="ModSettings\BloodDefModSettings.cs" />
+    <Compile Include="ModSettings\ModSettingsSection_Bases.cs" />
+    <Compile Include="ModSettings\BloodProductModSettings.cs" />
+    <Compile Include="ModSettings\GeneralProductModSettings.cs" />
+    <Compile Include="ModSettings\SpecificProductModSettings.cs" />
+    <Compile Include="Utilities\UIExtensions.cs" />
+    <Compile Include="Utilities\BloodDefCache.cs" />
+    <Compile Include="ModSettings\BloodBankModSettings.cs" />
+    <Compile Include="Utilities\BloodBankUtilities.cs" />
+    <Compile Include="Utilities\BloodThoughtDefOf.cs" />
+    <Compile Include="Comps\CompBlood.cs" />
+    <Compile Include="Comps\CompBloodProduct.cs" />
     <Compile Include="CompUsableExtensions\CompRestrictUsableByRace.cs" />
     <Compile Include="CompUsableExtensions\CompRestrictUsableWithSkill.cs" />
     <Compile Include="CompUsableExtensions\CompUsableRestriction.cs" />
     <Compile Include="CompUsableExtensions\CompUseEffect_AddHediff.cs" />
-    <Compile Include="CompUseEffect_AdministerBloodProduct.cs" />
-    <Compile Include="CompUseEffect_AdministerBloodTransfusion.cs" />
+    <Compile Include="Comps\CompUseEffect_AdministerBloodProduct.cs" />
+    <Compile Include="Comps\CompUseEffect_AdministerBloodTransfusion.cs" />
     <Compile Include="BloodBankMod.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Hediffs\HediffComp_HealFactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeDefGenerator_BloodSurgeries.cs" />
+    <Compile Include="DefGenerators\RecipeDefGenerator_BloodSurgeries.cs" />
     <Compile Include="Recipes\Recipe_AdministerBloodProduct.cs" />
     <Compile Include="Recipes\Recipe_AdministerBloodTransfusion.cs" />
     <Compile Include="Recipes\Recipe_TakeBlood.cs" />
-    <Compile Include="ThingDefGenerator_Blood.cs" />
+    <Compile Include="DefGenerators\ThingDefGenerator_Blood.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Install.bat" />

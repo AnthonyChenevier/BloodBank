@@ -7,8 +7,9 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-1</severityPerDay>
+			<li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>60000~60000</disappearsAfterTicks>
+                <showRemainingTime>True</showRemainingTime>
 			</li>
 		</comps>
 	</HediffDef>
@@ -19,11 +20,12 @@
 		<label>immune booster</label>
 		<description>immune boost from antibodies</description>
 		<stages>
-			<li>
-				<statOffsets>
-					<ImmunityGainSpeed>0.3</ImmunityGainSpeed>
-				</statOffsets>
-			</li>
+            <li>
+                <minSeverity>0</minSeverity>
+                <statOffsets>
+                    <ImmunityGainSpeed>0.3</ImmunityGainSpeed>
+                </statOffsets>
+            </li>
 		</stages>
 	</HediffDef>
 
@@ -37,6 +39,11 @@
 				<healFactor>2</healFactor>
 			</li>
 		</comps>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+            </li>
+        </stages>
 	</HediffDef>
 
 
@@ -46,6 +53,7 @@
 		<description>performance boost from hormones</description>
 		<stages>
 			<li>
+                <minSeverity>0</minSeverity>
 				<painFactor>-0.2</painFactor>
 				<capMods>
 					<li>
