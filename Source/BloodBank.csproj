@@ -299,15 +299,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BloodBankModSettings.cs" />
     <Compile Include="Debug.cs" />
-    <Compile Include="ModSettings\BloodDefModSettings.cs" />
-    <Compile Include="ModSettings\ModSettingsSection_Bases.cs" />
-    <Compile Include="ModSettings\BloodProductModSettings.cs" />
-    <Compile Include="ModSettings\GeneralProductModSettings.cs" />
-    <Compile Include="ModSettings\SpecificProductModSettings.cs" />
+    <Compile Include="ModSettingsData\BloodDefDataBlock.cs" />
+    <Compile Include="ModSettingsData\BloodProductDataBlock.cs" />
+    <Compile Include="ModSettingsData\GeneralProductDataBlock.cs" />
+    <Compile Include="ModSettingsData\ModSettingsDataBlock.cs" />
+    <Compile Include="ModSettingsData\SpecificProductDataBlock.cs" />
+    <Compile Include="ModSettingsDisplay\BloodDefDataDisplay.cs" />
+    <Compile Include="ModSettingsDisplay\BloodProductDataDisplay.cs" />
+    <Compile Include="ModSettingsDisplay\GeneralProductDataDisplay.cs" />
+    <Compile Include="ModSettingsDisplay\ModSettingsDataDisplay.cs" />
+    <Compile Include="ModSettingsDisplay\SpecificProductDataDisplay.cs" />
     <Compile Include="Utilities\UIExtensions.cs" />
     <Compile Include="BloodDefCache.cs" />
-    <Compile Include="ModSettings\BloodBankModSettings.cs" />
     <Compile Include="Utilities\BloodBankUtilities.cs" />
     <Compile Include="Utilities\BloodThoughtDefOf.cs" />
     <Compile Include="Comps\CompBlood.cs" />

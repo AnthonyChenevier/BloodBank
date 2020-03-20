@@ -8,7 +8,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using BloodBank.ModSettings;
+using BloodBank.ModSettingsData;
 using RimWorld;
 using UnityEngine;
 using Verse;
