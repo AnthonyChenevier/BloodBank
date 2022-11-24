@@ -1,3 +1,5 @@
+OBSOLETE (for 1.2 max)
+
 BLOOD BANK: Transfusions for your colonists
 ===========================================
 Are you sick of your pawns losing blood, and therefore productivity after defending your base? Introducing **Blood Bank**: a way to extract, store and transfuse blood between colonists, so you can keep on top of those pesky *Blood Loss (extreme)* effects and keep your pawns working!
